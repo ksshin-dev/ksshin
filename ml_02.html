@@ -113,43 +113,15 @@
                 <ul class="nav flex-column mt-3">
                     <li class="nav-item">
                         <a class="nav-link " href="#users">
-                            <i class="bi bi-caret-right" >머신러닝 개념</i>
+                            <i class="bi bi-caret-right" ></i>
+                            머신러닝 개념
                         </a>
-                        <ul class="submenu nav flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#user-list">
-                                    <i class="bi bi-circle-fill"></i>
-                                    사용자 목록
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#user-roles">
-                                    <i class="bi bi-circle"></i>
-                                    권한 관리
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link has-submenu" href="#contents">
-                            <i class="bi bi-file-text"></i>
-                            콘텐츠 관리
-                            <i class="bi bi-chevron-down float-end"></i>
+                        <a class="nav-link " href="#users">
+                            <i class="bi bi-caret-right" ></i>
+                            머신러닝 개념
                         </a>
-                        <ul class="submenu nav flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#posts">
-                                    <i class="bi bi-circle"></i>
-                                    게시물 관리
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#categories">
-                                    <i class="bi bi-circle"></i>
-                                    카테고리 관리
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                 </ul>
             </div>
@@ -185,6 +157,7 @@
             const sidebar = document.querySelector('.sidebar');
             sidebarToggle.addEventListener('click', function() {
                 sidebar.classList.toggle('show');
+                
             });
 
             // 반응형 처리
@@ -194,7 +167,7 @@
                 }
             }
 
-            window.addEventListener('resize', handleResize);
+            $(window).resize(handleResize);
         });
     </script>
 </body>

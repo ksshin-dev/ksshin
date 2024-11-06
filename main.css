@@ -1,0 +1,24 @@
+.hero-section {
+    background-size: cover;
+    align-items: left;
+    width: 100%;
+    color: white;
+}
+.feature-icon {
+    font-size: 2.5rem;
+    color: #0d6efd;
+}
+.header-left-posion {
+    padding-left: 30px;
+}
+.contents-top{
+    padding-top: 40px;
+    
+}
+.body-color {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+}
+.p-tag {
+    padding-left: 20px;
+}
+

@@ -1,0 +1,84 @@
+        /* 사이드바 스타일 */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 100;
+            padding: 48px 0 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: #f8f9fa;
+            width: 280px;
+        }
+
+        .sidebar-sticky {
+            position: relative;
+            top: 0;
+            height: calc(100vh - 48px);
+            padding-top: .5rem;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .sidebar .nav-link {
+            font-weight: 500;
+            color: #333;
+            padding: 0.5rem 1rem;
+        }
+
+        .sidebar .nav-link:hover {
+            background-color: #e9ecef;
+        }
+
+        .sidebar .nav-link.active {
+            color: #007bff;
+        }
+
+        .sidebar .nav-link i {
+            margin-right: 10px;
+        }
+
+        .submenu {
+            padding-left: 2rem;
+            display: none;
+        }
+
+        .submenu.show {
+            display: block;
+        }
+
+        /* 메인 콘텐츠 영역 */
+        .main-content {
+            margin-left: 280px;
+            padding: 2rem;
+        }
+
+        /* 모바일 대응 */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .sidebar.show {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .sidebar-toggle {
+                display: block !important;
+            }
+        }
+
+        .sidebar-toggle {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            width:50px;
+            height: 30px;
+            z-index: 1131;
+            display: none;
+        }

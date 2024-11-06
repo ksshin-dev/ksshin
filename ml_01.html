@@ -6,65 +6,69 @@
     <title> 잡다구리 </title>
     <!-- 부트스트랩 CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- 커스텀 스타일 -->
-    <style>
-        .hero-section {
-            background-size: cover;
-            align-items: center;
-            color: white;
-        }
-        .feature-icon {
-            font-size: 2.5rem;
-            color: #0d6efd;
-        }
-        .header-left-posion {
-            padding-left: 30px;
-        }
-        .contents-top{
-            padding-top: 47px;
-        }
-        .body-color {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1920/1080');
-        }
-        .p-tag {
-            padding-left: 20px;
-        }
-    </style>
+    <link href="main.css" rel="stylesheet">
+    <link href="side_menu.css" rel="stylesheet">
 </head>
 <body class="body-color">
+    <!-- 모바일 토글 버튼 -->
+    <button class="btn btn-primary sidebar-toggle">
+        <i class="bi bi-list"></i>
+    </button>
+
+    <!-- 사이드바 -->
+    <nav class="sidebar">
+        <div class="sidebar-sticky">
+            <div class="d-flex flex-column">
+                <!-- 프로필 영역 -->
+                <div class="text-center p-3 border-bottom">
+                    <h6 class="mb-0">머신너링</h6>
+                </div>
+
+                <!-- 메뉴 목록 -->
+                <ul class="nav flex-column mt-3">
+                    <li class="nav-item">
+                        <div id="side-menu">
+
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <!-- 네비게이션 바 -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="contaier header-left-posion">
-            <a class="navbar-brand" href="index.html">KS 자료실</a>
+            <a class="navbar-brand" href="index.html">잡다구리</a>
         </div>
     </nav>
 
     <div class="contents-top">
-        <section class="hero-section" id="home">
-            <div class="container text-left contents-top">
-                <h5>1. 머신 러닝(ML) 정의</h5>
-                <p class="p-tag">머신 러닝(ML)은 인간이 학습하는 방식을 모방하기 위한 데이터와 알고리즘의 사용에 초점을 맞춘 인공 지능(AI)의 한 분야로서, 
-                   시간이 지남에 따라 점차 정확도를 향상시킵니다. 1950년대에 컴퓨터 과학자이자 AI 혁신가인 Arthur Samuel에 의해 "명시적으로 
-                   프로그래밍되지 않고 컴퓨터가 학습할 수 있는 능력을 주는 연구 분야"로 처음 정의되었습니다.
-                   머신 러닝은 컴퓨터 알고리즘에 많은 양의 데이터를 제공하여 데이터 세트 내에서 패턴과 관계를 식별하는 방법을 배울 수 
-                   있도록 합니다. 그런 다음, 알고리즘은 분석을 기반으로 자신만의 예측 또는 결정을 내리기 시작합니다. 
-                   알고리즘이 새로운 데이터를 수신하면, 알고리즘은 사람이 연습을 통해 어떤 활동을 더 잘 하게 되는 것과 같은 방식으로 자신의 
-                   선택을 계속 개선하고 그 성과를 향상시킵니다.</p>
-                <h5>2. AI,머신러닝(ML),딥러닝(DL)관계</h5>
-                <P class="p-tag">AI > 머신러닝(ML) > 딥러닝(DL)</P>
-            </div>
-        </section>
-    </div>
-
-
-    <!-- 푸터 -->
-    <!-- <footer class="bg-dark text-light py-4">
-        <div class="container text-center">
-            <p class="mb-0">&copy; KS 자료실.</p>
+        <div class="container hero-section text-left contents-top">
+            <h5>1. 머신 러닝(ML) 정의</h5>
+            <p class="p-tag"><strong>머신 러닝(ML)은 인간이 학습하는 방식을 모방하기 위한 데이터와 알고리즘의 사용에 초점을 맞춘 인공 지능(AI)의 한 분야로서, 
+                시간이 지남에 따라 점차 정확도를 향상시킵니다.</strong> 1950년대에 컴퓨터 과학자이자 AI 혁신가인 Arthur Samuel에 의해 "명시적으로 
+                프로그래밍되지 않고 컴퓨터가 학습할 수 있는 능력을 주는 연구 분야"로 처음 정의되었습니다.
+                머신 러닝은 컴퓨터 알고리즘에 많은 양의 데이터를 제공하여 데이터 세트 내에서 패턴과 관계를 식별하는 방법을 배울 수 
+                있도록 합니다. 그런 다음, 알고리즘은 분석을 기반으로 자신만의 예측 또는 결정을 내리기 시작합니다. 
+                알고리즘이 새로운 데이터를 수신하면, 알고리즘은 사람이 연습을 통해 어떤 활동을 더 잘 하게 되는 것과 같은 방식으로 자신의 
+                선택을 계속 개선하고 그 성과를 향상시킵니다.</p>
+            <h5>2. AI,머신러닝(ML),딥러닝(DL)관계</h5>
+            <P class="p-tag">AI > 머신러닝(ML) > 딥러닝(DL)</P>
+            <h5>3. 머신 러닝의 유형</h5>
         </div>
-    </footer> -->
+    </div>
     
     <!-- 부트스트랩 JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="side_menu.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            fun_left_menu("ml_01");
+        });
+    </script>
 </body>
 </html>
