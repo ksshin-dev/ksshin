@@ -1,186 +1,219 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
+    <title>로그인</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> KS 자료실 </title>
-    <!-- 부트스트랩 CSS -->
+    <!-- Bootstrap CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- 커스텀 스타일 -->
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
     <style>
-        .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1920/1080');
-            background-size: cover;
-            background-position: center;
+        body {
+            background-color: #f5f5f5;
             height: 100vh;
-            display: flex;
-            align-items: center;
-            color: white;
         }
-        .feature-icon {
-            font-size: 2.5rem;
-            color: #0d6efd;
+
+        .login-container {
+            max-width: 360px;
+            margin: 0 auto;
+            padding: 15px;
         }
-        .click-cursor {
-            cursor : pointer;
+
+        .login-form {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            width: 100%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-floating {
+            margin-bottom: 15px;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .password-toggle {
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .error-message {
+            display: none;
+            margin-bottom: 10px;
+        }
+
+        .btn-login {
+            background-color: #4a90e2;
+            border-color: #4a90e2;
+        }
+
+        .btn-login:hover {
+            background-color: #357abd;
+            border-color: #357abd;
+        }
+
+        .help-links {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .help-links a {
+            color: #6c757d;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .help-links a:hover {
+            color: #4a90e2;
         }
     </style>
 </head>
 <body>
-    <!-- 네비게이션 바 -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">KS 자료실</a>
-            <!--<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button> -->
-            <!-- <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#features">특징</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">소개</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">문의</a>
-                    </li>
-                </ul>
-            </div> -->
+<div class="container d-flex align-items-center justify-content-center min-vh-100">
+    <div class="login-container">
+        <!-- 로고 영역 -->
+        <div class="logo">
+            <h2>로그인</h2>
         </div>
-    </nav>
 
+        <!-- 로그인 폼 -->
+        <div class="login-form">
+            <!-- 에러 메시지 -->
+            <div class="alert alert-danger error-message" role="alert"></div>
 
-    <section class="hero-section" id="home">
-        <div class="container text-center">
-            <div class="row row-cols-5">
-                <div class="col">
-                    <div class="text-center click-cursor" onclick="location.href='ml_01.html';">
-                        <div class="feature-icon">⚡</div>
-                        <h3>머신러닝</h3>
-                    </div>
+            <!-- 로그인 입력 폼 -->
+            <form id="loginForm">
+                <!-- 아이디 입력 -->
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="userId" 
+                           placeholder="아이디" required
+                           autocomplete="username">
+                    <label for="userId">아이디</label>
                 </div>
-                <div class="col">
-                    <div class="text-center click-cursor">
-                        <div class="feature-icon">🛡️</div>
-                        <h3>파이썬</h3>
-                    </div>
+
+                <!-- 비밀번호 입력 -->
+                <div class="form-floating position-relative">
+                    <input type="password" class="form-control" id="userPassword" 
+                           placeholder="비밀번호" required
+                           autocomplete="current-password">
+                    <label for="userPassword">비밀번호</label>
+                    <i class="bi bi-eye-slash password-toggle" id="passwordToggle"></i>
                 </div>
-                <div class="col">
-                    <div class="text-center click-cursor">
-                        <div class="feature-icon">💎</div>
-                        <h3>통계</h3>
+
+                <!-- 로그인 옵션 -->
+                <!-- <div class="login-options">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="autoLogin">
+                        <label class="form-check-label" for="autoLogin">자동 로그인</label>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="text-center click-cursor">
-                        <div class="feature-icon">💎</div>
-                        <h3>통계</h3>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="saveId">
+                        <label class="form-check-label" for="saveId">아이디 저장</label>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="text-center click-cursor">
-                        <div class="feature-icon">💎</div>
-                        <h3>통계</h3>
-                    </div>
-                </div>
-            </div>
+                </div> -->
+
+                <!-- 로그인 버튼 -->
+                <button type="submit" class="btn btn-login btn-primary w-100">
+                    로그인
+                </button>
+            </form>
+
         </div>
-    </section>
+    </div>
+</div>
+
+<!-- jQuery and Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    // 저장된 아이디가 있으면 불러오기
+    const savedId = localStorage.getItem('savedId');
+    if (savedId) {
+        $('#userId').val(savedId);
+        $('#saveId').prop('checked', true);
+    }
+
+    // 비밀번호 표시/숨기기 토글
+    $('#passwordToggle').click(function() {
+        const passwordInput = $('#userPassword');
+        const icon = $(this);
+        
+        if (passwordInput.attr('type') === 'password') {
+            passwordInput.attr('type', 'text');
+            icon.removeClass('bi-eye-slash').addClass('bi-eye');
+        } else {
+            passwordInput.attr('type', 'password');
+            icon.removeClass('bi-eye').addClass('bi-eye-slash');
+        }
+    });
+
+    // 로그인 폼 제출 처리
+    $('#loginForm').submit(function(e) {
+        e.preventDefault();
+        
+        const userId = $('#userId').val().trim();
+        const password = $('#userPassword').val();
+
+        // 입력값 검증
+        if (!userId) {
+            showError('아이디를 입력해주세요.');
+            return;
+        }
+
+        if (!password) {
+            showError('비밀번호를 입력해주세요.');
+            return;
+        }
+
+        // 로그인 시도
+        attemptLogin(userId, password);
+    });
+
+    // 에러 메시지 표시 함수
+    function showError(message) {
+        $('.error-message').text(message).show();
+    }
+
+    // 로그인 시도 함수
+    function attemptLogin(userId, password) {
+        // 로딩 상태 표시
+        const submitBtn = $('button[type="submit"]');
+        submitBtn.prop('disabled', true)
+                .html('<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>로그인 중...');
+
+        // 여기에 실제 로그인 API 호출을 구현
+        // 현재는 테스트용 시뮬레이션
+        setTimeout(function() {
+            if (userId === 'admin' && password === '4$4$') {
+                
+                // 메인 페이지로 리디렉션
+                window.location.href = '/menu.html';
+            } else {
+                // 로그인 실패
+                showError('아이디 또는 비밀번호가 일치하지 않습니다.');
+                submitBtn.prop('disabled', false).text('로그인');
+            }
+        }, 1000);
+    }
+
+    // 입력 필드 변경 시 에러 메시지 숨기기
+    $('input').on('input', function() {
+        $('.error-message').hide();
+    });
 
 
-    <!-- 히어로 섹션 -->
-    <!-- <section class="hero-section" id="home">
-        <div class="container text-center">
-            <h1 class="display-4 fw-bold mb-4">Welcome</h1>
-            <p class="lead mb-4">혁신적인 솔루션으로 당신의 비즈니스를 성장시켜 드립니다</p>
-            <button class="btn btn-primary btn-lg">자세히 알아보기</button>
-        </div>
-    </section> -->
-
-    <!-- 특징 섹션 -->
-    <!-- <section class="py-5" id="features">
-        <div class="container">
-            <h2 class="text-center mb-5">주요 특징</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="text-center">
-                        <div class="feature-icon">⚡</div>
-                        <h3>빠른 성능</h3>
-                        <p>최적화된 성능으로 빠른 서비스를 제공합니다.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="text-center">
-                        <div class="feature-icon">🛡️</div>
-                        <h3>보안</h3>
-                        <p>철저한 보안으로 안전한 서비스를 제공합니다.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="text-center">
-                        <div class="feature-icon">💎</div>
-                        <h3>품질</h3>
-                        <p>최고의 품질로 만족스러운 결과를 제공합니다.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- 소개 섹션 -->
-    <!-- <section class="bg-light py-5" id="about">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <img src="/api/placeholder/600/400" alt="About Us" class="img-fluid rounded">
-                </div>
-                <div class="col-md-6">
-                    <h2>회사 소개</h2>
-                    <p class="lead">우리는 혁신적인 솔루션을 제공하는 기업입니다.</p>
-                    <p>고객의 니즈를 최우선으로 생각하며, 최고의 서비스를 제공하기 위해 끊임없이 노력합니다.</p>
-                    <button class="btn btn-outline-primary">더 알아보기</button>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- 문의 섹션 -->
-    <!-- <section class="py-5" id="contact">
-        <div class="container">
-            <h2 class="text-center mb-5">문의하기</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <form>
-                        <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="이름">
-                        </div>
-                        <div class="mb-3">
-                            <input type="email" class="form-control" placeholder="이메일">
-                        </div>
-                        <div class="mb-3">
-                            <textarea class="form-control" rows="5" placeholder="메시지"></textarea>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary">보내기</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- 푸터 -->
-    <footer class="bg-dark text-light py-4">
-        <div class="container text-center">
-            <p class="mb-0">&copy; KS 자료실.</p>
-        </div>
-    </footer>
-    
-    <!-- 부트스트랩 JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+});
+</script>
 </body>
 </html>
