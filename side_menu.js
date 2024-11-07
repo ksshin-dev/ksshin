@@ -27,8 +27,9 @@ $(document).ready(function() {
 function fun_left_menu(arg) {
     var tabHtml = ''
 
-    if (arg == "ml_01") {
+    if (arg == "ml_01" || arg == "ml_02") {
         tabHtml = '<a class="nav-link " href="ml_01.html"> <i class="bi bi-caret-right" ></i>머신러닝 개념</a>';
+        tabHtml = tabHtml + '<a class="nav-link " href="ml_02.html"> <i class="bi bi-caret-right" ></i>훈련(학습)/테스트 데이터 분할</a>';
     }
 
     $('#side-menu').html(tabHtml);

@@ -3,98 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap 사이드바 메뉴</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
-    
-    <style>
-        /* 사이드바 스타일 */
-        .sidebar {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 100;
-            padding: 48px 0 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            background-color: #f8f9fa;
-            width: 280px;
-        }
-
-        .sidebar-sticky {
-            position: relative;
-            top: 0;
-            height: calc(100vh - 48px);
-            padding-top: .5rem;
-            overflow-x: hidden;
-            overflow-y: auto;
-        }
-
-        .sidebar .nav-link {
-            font-weight: 500;
-            color: #333;
-            padding: 0.5rem 1rem;
-        }
-
-        .sidebar .nav-link:hover {
-            background-color: #e9ecef;
-        }
-
-        .sidebar .nav-link.active {
-            color: #007bff;
-        }
-
-        .sidebar .nav-link i {
-            margin-right: 10px;
-        }
-
-        .submenu {
-            padding-left: 2rem;
-            display: none;
-        }
-
-        .submenu.show {
-            display: block;
-        }
-
-        /* 메인 콘텐츠 영역 */
-        .main-content {
-            margin-left: 280px;
-            padding: 2rem;
-        }
-
-        /* 모바일 대응 */
-        @media (max-width: 768px) {
-            .sidebar {
-                transform: translateX(-100%);
-                transition: transform 0.3s ease-in-out;
-            }
-
-            .sidebar.show {
-                transform: translateX(0);
-            }
-
-            .main-content {
-                margin-left: 0;
-            }
-
-            .sidebar-toggle {
-                display: block !important;
-            }
-        }
-
-        .sidebar-toggle {
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            z-index: 101;
-            display: none;
-        }
-    </style>
+    <title> 잡다구리 </title>
+    <!-- 부트스트랩 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+    <link href="side_menu.css" rel="stylesheet">
 </head>
-<body>
+<body class="body-color">
     <!-- 모바일 토글 버튼 -->
     <button class="btn btn-primary sidebar-toggle">
         <i class="bi bi-list"></i>
@@ -106,68 +21,71 @@
             <div class="d-flex flex-column">
                 <!-- 프로필 영역 -->
                 <div class="text-center p-3 border-bottom">
-                    <h6 class="mb-0">사용자명</h6>
+                    <h6 class="mb-0">머신너링</h6>
                 </div>
 
                 <!-- 메뉴 목록 -->
                 <ul class="nav flex-column mt-3">
                     <li class="nav-item">
-                        <a class="nav-link " href="#users">
-                            <i class="bi bi-caret-right" ></i>
-                            머신러닝 개념
-                        </a>
+                        <div id="side-menu">
+
+                        </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="#users">
-                            <i class="bi bi-caret-right" ></i>
-                            머신러닝 개념
-                        </a>
-                    </li>
+
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- 메인 콘텐츠 영역 -->
-    <main class="main-content">
-        <h2>대시보드</h2>
-        <p>여기에 메인 콘텐츠가 들어갑니다.</p>
-    </main>
+    <!-- 네비게이션 바 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="contaier header-left-posion">
+            <a class="navbar-brand" href="menu.html">잡다구리</a>
+        </div>
+    </nav>
 
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="contents-top">
+        <div class="container hero-section text-left contents-top">
+            <h5>1. train_test_split()설명</h5>
+            <p class="p-tag"><b>기본문법 : </b>train_test_split(arrays, test_size, train_size, random_state, shuffle, stratify)<br>
+                arrays : 데이터와 레이블이 포함된 numpy 배열이나 pandas DataFrame입니다.<br>
+                test_size : 테스트 데이터셋의 크기를 결정합니다. <br>
+                            이 값은 0과 1 사이의 실수로 주어집니다. <br>
+                            예를 들어, test_size=0.2로 지정하면 전체 데이터셋의 20%를 테스트 데이터셋으로 사용합니다.<br>
+                train_size : 학습 데이터셋의 크기를 결정합니다. <br>
+                             test_size와 마찬가지로 0과 1 사이의 실수로 주어집니다. <br>
+                             기본값은 None으로, 학습 데이터셋 크기를 1 - test_size로 결정합니다.<br>
+                random_state : 데이터를 나눌 때 사용되는 난수 시드입니다. <br>
+                               이 값을 지정하지 않으면, 매번 실행할 때마다 다른 결과를 얻을 수 있습니다.<br>
+                shuffle : 데이터를 섞을지 여부를 결정합니다. 기본값은 True입니다.<br>
+                stratify : 레이블을 고려하여 데이터를 나눌지 여부를 결정합니다. <br>
+                           예를 들어, stratify=y로 지정하면 레이블 데이터 y에 따라 학습 데이터셋과 테스트 데이터셋의 클래스 비율이 유지됩니다.<br>   
+                <b>Return: : </b><br>
+                X_train, X_test, Y_train, Y_test : arrays에 데이터와 레이블을 둘 다 넣었을 경우의 반환이며, 데이터와 레이블의 순서쌍은 유지된다.<br>
+                X_train, X_test : arrays에 레이블 없이 데이터만 넣었을 경우의 반환           
+            </p>
+            <h5>2. AI,머신러닝(ML),딥러닝(DL)관계</h5>
+            <P class="p-tag">AI > 머신러닝(ML) > 딥러닝(DL)</P>
+            <h5>3. 머신 러닝의 학습 방법</h5>
+            <p class="p-tag"><b>지도 학습 : </b>입력 데이터와 이에 상응하는 출력 데이터(결과 또는 레이블)를 사용하여 모델을 훈련하는 방법.(입력 데이터와 결과 데이터를 컴퓨터에 입력하고, 이를 컴퓨터가 학습하여 유사한 데이터가 입력되었을 경우 결과를 예측하게 하는 방법) 
+                예를 들어, 이메일이 스팸인지 아닌지를 분류하는 스팸 필터가 지도 학습에 해당합니다.</p>
+            <p class="p-tag"><b>비지도 학습 : </b>출력 데이터(결과 또는 레이블) 없이 입력 데이터의 패턴이나 군집을 찾아내어 결과를 예측하는 방법. 예로 고객의 구매 패턴을 분석해 그룹화하는 작업이 있습니다.</p>
+            <p class="p-tag"><b>강화 학습 : </b>에이전트(머신러닝 알고리즘)에 상벌을 추가하여 학습하게 하는 방법</p>
+            <h5>4. 머신 러닝 알고리즘</h5>
+            <P class="p-tag"><b>선형 회귀 : </b>독립(입력) 변수와 종속(대상) 변수간의 상관 관계를 모델링하는 기법. 예를 들면 독립 변수라는 아파트의 평수 , 위치, 방 수 및 기타 특징에 따라 종속 변수인 집값이 예측/결정된다.</p>
+            <P class="p-tag"><b>로지스틱 회귀 : </b>결과를 예측하는 것이 목적인 이항 분류 문제에 사용됩니다. 로지스틱 회귀에서는 입력 변수의 선형 모델을 기반으로 대상 변수의 확률을 추정합니다. 신청자의 신용 점수 및 기타 재무 데이터를 기반으로 대출 신청이 승인될 것인지 여부를 예측하는 것이 한 예입니다.</P>
+
+        </div>
+    </div>
     
-    <!-- 사이드바 동작 스크립트 -->
+    <!-- 부트스트랩 JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="side_menu.js"></script>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 서브메뉴 토글
-            const submenuToggleLinks = document.querySelectorAll('.has-submenu');
-            submenuToggleLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const submenu = this.nextElementSibling;
-                    submenu.classList.toggle('show');
-                    const chevron = this.querySelector('.bi-chevron-down');
-                    chevron.classList.toggle('bi-chevron-up');
-                });
-            });
-
-            // 모바일 사이드바 토글
-            const sidebarToggle = document.querySelector('.sidebar-toggle');
-            const sidebar = document.querySelector('.sidebar');
-            sidebarToggle.addEventListener('click', function() {
-                sidebar.classList.toggle('show');
-                
-            });
-
-            // 반응형 처리
-            function handleResize() {
-                if (window.innerWidth > 768) {
-                    sidebar.classList.remove('show');
-                }
-            }
-
-            $(window).resize(handleResize);
+        $(document).ready(function() {
+            fun_left_menu("ml_02");
         });
     </script>
 </body>
