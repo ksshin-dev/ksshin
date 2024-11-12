@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Zebra 바코드 프린터</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/BrowserPrint/3.0.216/BrowserPrint.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .container {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #status {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Zebra 바코드 프린터</h1>
+        
+        <div class="input-group">
+            <label for="printerSelect">프린터 선택:</label>
+            <select id="printerSelect">
+                <option value="">프린터를 선택하세요...</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="barcodeData">바코드 데이터:</label>
+            <input type="text" id="barcodeData" placeholder="바코드로 변환할 텍스트를 입력하세요">
+        </div>
+
+        <button onclick="printBarcode()">바코드 출력</button>
+        
+        <div id="status"></div>
+    </div>
+
+    <script>
+        let selected_printer = null;
+
+        window.onload = function() {
+            // BrowserPrint 초기화
+            BrowserPrint.getDefaultDevice('printer', function(device) {
+                selected_printer = device;
+                if (selected_printer != null) {
+                    let select = document.getElementById("printerSelect");
+                    let option = document.createElement('option');
+                    option.text = selected_printer.name;
+                    option.value = selected_printer.name;
+                    select.add(option);
+                    select.value = selected_printer.name;
+                }
+            }, function(error) {
+                showStatus('프린터를 찾을 수 없습니다: ' + error, false);
+            });
+        }
+
+        function printBarcode() {
+            if (!selected_printer) {
+                showStatus('프린터가 선택되지 않았습니다.', false);
+                return;
+            }
+
+            let barcodeData = document.getElementById('barcodeData').value;
+            if (!barcodeData) {
+                showStatus('바코드 데이터를 입력해주세요.', false);
+                return;
+            }
+
+            // ZPL 코드 생성
+            let zpl = `^XA
+^FO50,50
+^BC,100,Y,N,N
+^FD${barcodeData}^FS
+^FO50,170
+^A0N,30,30
+^FD${barcodeData}^FS
+^XZ`;
+
+            selected_printer.send(zpl, function(success) {
+                showStatus('바코드가 성공적으로 출력되었습니다!', true);
+            }, function(error) {
+                showStatus('출력 중 오류가 발생했습니다: ' + error, false);
+            });
+        }
+
+        function showStatus(message, isSuccess) {
+            let status = document.getElementById('status');
+            status.textContent = message;
+            status.className = isSuccess ? 'success' : 'error';
+        }
+    </script>
+</body>
+</html>
