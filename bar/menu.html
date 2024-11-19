@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모던 레이아웃</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3f37c9;
+            --bg-color: #f8f9fa;
+            --text-color: #2b2d42;
+            --border-color: #e9ecef;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        /* 헤더 스타일 */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: white !important;
+        }
+
+        .navbar .nav-link {
+            color: rgba(255,255,255,0.9) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            margin: 0 0.2rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .nav-link:hover {
+            background-color: rgba(255,255,255,0.1);
+            color: white !important;
+        }
+
+        /* 사이드바 스타일 */
+        .sidebar {
+            background-color: white;
+            height: calc(100vh - 70px);
+            padding: 1.5rem 0;
+            box-shadow: 2px 0 4px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .nav-pills .nav-link {
+            color: var(--text-color);
+            padding: 0.8rem 1.5rem;
+            margin: 0.2rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .nav-pills .nav-link:hover {
+            background-color: rgba(67, 97, 238, 0.05);
+            color: var(--primary-color);
+        }
+
+        .nav-pills .nav-link.active {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 6px rgba(67, 97, 238, 0.2);
+        }
+
+        .nav-pills .nav-link i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* 탭 스타일 */
+        #tabList {
+            padding: 1rem;
+            background-color: white;
+            border-radius: 8px;
+            margin: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .tab-button {
+            padding: 0.5rem 1rem;
+            margin-right: 0.5rem;
+            border: none;
+            border-radius: 6px;
+            background-color: #f8f9fa;
+            color: var(--text-color);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .tab-button.active {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 2px 4px rgba(67, 97, 238, 0.2);
+        }
+
+        .tab-close {
+            margin-left: 8px;
+            font-size: 1.2rem;
+            line-height: 1;
+            border-radius: 50%;
+            padding: 2px 6px;
+            transition: all 0.3s ease;
+        }
+
+        .tab-button:not(.active) .tab-close:hover {
+            background-color: #dee2e6;
+        }
+
+        .tab-button.active .tab-close:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        /* 컨텐츠 영역 스타일 */
+        .tab-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 0 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        /* 반응형 조정 */
+        @media (max-width: 768px) {
+            .sidebar {
+                height: auto;
+                margin-bottom: 1rem;
+            }
+
+            .nav-pills .nav-link {
+                padding: 0.6rem 1rem;
+                margin: 0.2rem 0.5rem;
+            }
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 메인 네비게이션 -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-cube me-2"></i>
+                Modern UI
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <i class="fas fa-home me-1"></i>홈
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-box me-1"></i>제품
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-cog me-1"></i>서비스
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-headset me-1"></i>고객지원
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- 왼쪽 사이드바 -->
+            <div class="col-md-2 sidebar">
+                <div class="nav flex-column nav-pills">
+                    <a class="nav-link" href="#" data-content="대시보드 내용">
+                        <i class="fas fa-chart-line"></i>대시보드
+                    </a>
+                    <a class="nav-link" href="#" data-content="프로젝트 관리 내용">
+                        <i class="fas fa-project-diagram"></i>프로젝트
+                    </a>
+                    <a class="nav-link" href="#" data-content="일정 관리 내용">
+                        <i class="fas fa-calendar-alt"></i>일정
+                    </a>
+                    <a class="nav-link" href="#" data-content="리포트 내용">
+                        <i class="fas fa-file-alt"></i>리포트
+                    </a>
+                    <a class="nav-link" href="#" data-content="설정 내용">
+                        <i class="fas fa-cog"></i>설정
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 메인 컨텐츠 영역 -->
+            <div class="col-md-10">
+                <!-- 탭 리스트 -->
+                <div id="tabList"></div>
+                <!-- 탭 컨텐츠 -->
+                <div id="tabContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            let openTabs = new Set();
+            
+            // 사이드바 메뉴 클릭 이벤트
+            $('.nav-pills .nav-link').click(function(e) {
+                e.preventDefault();
+                const menuName = $(this).text().trim();
+                const content = $(this).data('content');
+                const icon = $(this).find('i').clone().prop('outerHTML');
+                
+                if (!openTabs.has(menuName)) {
+                    openTabs.add(menuName);
+                    addTab(menuName, content, icon);
+                }
+                
+                activateTab(menuName);
+            });
+            
+            function addTab(menuName, content, icon) {
+                $('#tabList').append(`
+                    <span class="tab-button" data-tab="${menuName}">
+                        ${icon} ${menuName}
+                        <span class="tab-close" data-tab="${menuName}">×</span>
+                    </span>
+                `);
+                
+                $('#tabContent').append(`
+                    <div class="tab-pane" id="tab-${menuName}" style="display: none;">
+                        <div class="tab-container">
+                            <h4 class="mb-4">${icon} ${menuName}</h4>
+                            <p>${content}</p>
+                            <div class="placeholder-content">
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">섹션 1</h5>
+                                                <p class="card-text">샘플 컨텐츠입니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">섹션 2</h5>
+                                                <p class="card-text">샘플 컨텐츠입니다.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `);
+
+                // 애니메이션 효과 추가
+                $(`.tab-button[data-tab="${menuName}"]`).hide().fadeIn(300);
+                
+                $(`.tab-close[data-tab="${menuName}"]`).click(function(e) {
+                    e.stopPropagation();
+                    closeTab(menuName);
+                });
+                
+                $(`.tab-button[data-tab="${menuName}"]`).click(function() {
+                    activateTab(menuName);
+                });
+            }
+            
+            function activateTab(menuName) {
+                $('.tab-button').removeClass('active');
+                $('.tab-pane').fadeOut(200);
+                
+                $(`.tab-button[data-tab="${menuName}"]`).addClass('active');
+                $(`#tab-${menuName}`).delay(200).fadeIn(200);
+                
+                $('.nav-pills .nav-link').removeClass('active');
+                $(`.nav-pills .nav-link:contains('${menuName}')`).addClass('active');
+            }
+            
+            function closeTab(menuName) {
+                const $tab = $(`.tab-button[data-tab="${menuName}"]`);
+                const $content = $(`#tab-${menuName}`);
+                
+                $tab.fadeOut(200, function() {
+                    $(this).remove();
+                });
+                
+                $content.fadeOut(200, function() {
+                    $(this).remove();
+                });
+                
+                openTabs.delete(menuName);
+                
+                if (openTabs.size > 0) {
+                    const lastTab = Array.from(openTabs).pop();
+                    setTimeout(() => activateTab(lastTab), 250);
+                }
+            }
+
+            // 초기 탭 생성 (선택사항)
+            $('.nav-pills .nav-link:first').click();
+        });
+    </script>
+</body>
+</html>

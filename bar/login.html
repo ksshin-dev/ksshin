@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            height: 100vh;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        .login-wrapper {
+            max-width: 1100px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .logo-section {
+            background: linear-gradient(45deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        .logo-container {
+            width: 350px;
+            height: 350px;
+            background: white;
+            border-radius: 25px;
+            padding: 35px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        .logo-container:hover {
+            transform: translateY(-5px);
+        }
+        .company-name {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        .company-slogan {
+            color: #6c757d;
+            text-align: center;
+            font-size: 1.3rem;
+            line-height: 1.6;
+        }
+        .login-section {
+            padding: 3.5rem;
+        }
+        .login-header {
+            margin-bottom: 2.5rem;
+        }
+        .login-title {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        .login-subtitle {
+            color: #6c757d;
+            font-size: 1.1rem;
+        }
+        .btn-login {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            border: none;
+            padding: 1rem;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,123,255,0.3);
+        }
+        .form-control {
+            border-radius: 12px;
+            padding: 0.9rem;
+            border: 1px solid #e1e1e1;
+            font-size: 1.1rem;
+        }
+        .form-control:focus {
+            box-shadow: none;
+            border-color: #007bff;
+        }
+        .login-footer {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+        }
+        .form-label {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        @media (max-width: 768px) {
+            .login-wrapper {
+                margin: 1rem;
+            }
+            .logo-section {
+                padding: 2rem;
+            }
+            .logo-container {
+                width: 250px;
+                height: 250px;
+                padding: 25px;
+            }
+            .login-section {
+                padding: 2rem;
+            }
+            .company-name {
+                font-size: 1.8rem;
+            }
+            .company-slogan {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container d-flex align-items-center justify-content-center h-100">
+        <div class="login-wrapper row">
+            <!-- 왼쪽 로고 섹션 -->
+            <div class="col-lg-6 logo-section">
+                <div class="logo-container">
+                    <img src="/api/placeholder/280/280" alt="회사 로고" class="img-fluid">
+                </div>
+                <div class="company-name">타타대우 모빌리티</div>
+                <div class="company-slogan">
+                    Empower your Journey
+                </div>
+            </div>
+            
+            <!-- 오른쪽 로그인 섹션 -->
+            <div class="col-lg-6 login-section">
+                <div class="login-header">
+                    <h1 class="login-title">로그인</h1>
+                    <p class="login-subtitle">계정에 로그인하여 시작하세요</p>
+                </div>
+                
+                <form id="loginForm">
+                    <div class="mb-4">
+                        <label for="email" class="form-label">이메일</label>
+                        <input type="email" class="form-control" id="email" placeholder="name@company.com" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="password" class="form-label">비밀번호</label>
+                        <input type="password" class="form-control" id="password" placeholder="비밀번호를 입력하세요" required>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <input type="checkbox" class="form-check-input" id="rememberMe">
+                        <label class="form-check-label" for="rememberMe">로그인 상태 유지</label>
+                    </div>
+                    <button type="submit" class="btn btn-login btn-primary w-100 mb-3">로그인</button>
+                    
+                    <div class="login-footer text-center">
+                        <a href="#" class="text-decoration-none me-3">비밀번호 찾기</a>
+                        <!-- <span class="text-muted">|</span>
+                        <a href="#" class="text-decoration-none ms-3">회원가입</a> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.logo-container').hover(
+                function() {
+                    $(this).css('transform', 'translateY(-5px)');
+                },
+                function() {
+                    $(this).css('transform', 'translateY(0)');
+                }
+            );
+
+            $('#loginForm').on('submit', function(e) {
+                e.preventDefault();
+                
+                const email = $('#email').val();
+                const password = $('#password').val();
+                const rememberMe = $('#rememberMe').is(':checked');
+
+                console.log('로그인 시도:', { email, password, rememberMe });
+                
+                alert('로그인이 성공적으로 처리되었습니다!');
+            });
+        });
+    </script>
+</body>
+</html>

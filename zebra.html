@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Zebra 바코드 프린터</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/BrowserPrint/3.0.216/BrowserPrint.min.js"></script>
+    <script src="js/BrowserPrint-3.1.250.min.js"></script>
+    <script src="js/BrowserPrint-Zebra-1.1.250.min.js"></script>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -82,6 +83,7 @@
         let selected_printer = null;
 
         window.onload = function() {
+
             // BrowserPrint 초기화
             BrowserPrint.getDefaultDevice('printer', function(device) {
                 selected_printer = device;
@@ -111,14 +113,15 @@
             }
 
             // ZPL 코드 생성
-            let zpl = `^XA
-^FO50,50
-^BC,100,Y,N,N
-^FD${barcodeData}^FS
-^FO50,170
-^A0N,30,30
-^FD${barcodeData}^FS
-^XZ`;
+            let zpl = '^XA';
+                zpl = zpl + '^FO50,50';
+                zpl = zpl + '^BC,100,Y,N,N';
+                zpl = zpl + '^FD${' + barcodeData +'}^FS';
+                zpl = zpl + '^FO50,170';
+                zpl = zpl + '^A0N,30,30';
+                zpl = zpl + '^FD${'+ barcodeData + '}^FS';
+                zpl = zpl + '^XZ';
+
 
             selected_printer.send(zpl, function(success) {
                 showStatus('바코드가 성공적으로 출력되었습니다!', true);
