@@ -1,22 +1,22 @@
-ï»¿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="euc-kr" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Blog UI ë¦¬ë””ìì¸</title>
+  <title>Blog UI ¸®µğÀÚÀÎ</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;500;600&display=swap');
 
     :root {
-      --bg: #f7f2ea;
-      --bg-2: #f0e7da;
-      --ink: #1b1b1f;
-      --muted: #5c5f66;
-      --accent: #0f9f9a;
-      --accent-2: #e8654f;
+      --bg: #eef2ff;
+      --bg-2: #dfe6ff;
+      --ink: #0b132b;
+      --muted: #4b5874;
+      --accent: #17298C;
+      --accent-2: #4b63d9;
       --card: #ffffff;
-      --shadow: 0 10px 30px rgba(9, 14, 23, 0.12);
-      --ring: rgba(15, 159, 154, 0.35);
+      --shadow: 0 10px 30px rgba(9, 18, 58, 0.18);
+      --ring: rgba(23, 41, 140, 0.35);
     }
 
     * {
@@ -27,8 +27,8 @@
       margin: 0;
       color: var(--ink);
       background:
-        radial-gradient(1200px 600px at 10% -10%, rgba(15, 159, 154, 0.18), transparent 60%),
-        radial-gradient(900px 500px at 100% 0%, rgba(232, 101, 79, 0.16), transparent 55%),
+        radial-gradient(1200px 600px at 10% -10%, rgba(23, 41, 140, 0.18), transparent 60%),
+        radial-gradient(900px 500px at 100% 0%, rgba(75, 99, 217, 0.16), transparent 55%),
         linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
       font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
       line-height: 1.5;
@@ -53,8 +53,8 @@
       top: 0;
       z-index: 20;
       backdrop-filter: blur(10px);
-      background: rgba(247, 242, 234, 0.7);
-      border-bottom: 1px solid rgba(27, 27, 31, 0.06);
+      background: rgba(238, 242, 255, 0.75);
+      border-bottom: 1px solid rgba(11, 19, 43, 0.08);
     }
 
     .nav {
@@ -79,8 +79,16 @@
       width: 40px;
       height: 40px;
       border-radius: 12px;
-      background: conic-gradient(from 120deg, var(--accent), var(--accent-2), #ffcf70, var(--accent));
-      box-shadow: 0 8px 16px rgba(15, 159, 154, 0.25);
+      object-fit: cover;
+      border: 2px solid #ffffff;
+      box-shadow: 0 8px 16px rgba(23, 41, 140, 0.25);
+    }
+
+    .site-logo {
+      height: 32px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 12px rgba(23, 41, 140, 0.2));
     }
 
     .nav-links {
@@ -157,7 +165,7 @@
     }
 
     .btn-outline {
-      border-color: rgba(27, 27, 31, 0.2);
+      border-color: rgba(11, 19, 43, 0.2);
       color: var(--ink);
       background: rgba(255, 255, 255, 0.7);
     }
@@ -197,7 +205,7 @@
     }
 
     .meta div {
-      background: #f7f7f7;
+      background: #eef2ff;
       border-radius: 16px;
       padding: 12px;
       text-align: center;
@@ -286,7 +294,7 @@
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
       gap: 24px;
-      background: #111827;
+      background: #0e1b52;
       color: #fff;
       border-radius: 28px;
       padding: 28px;
@@ -408,104 +416,105 @@
     <header class="topbar">
       <nav class="nav">
         <div class="brand">
-          <div class="brand-mark" aria-hidden="true"></div>
-          <div>êµ­íšŒì˜ì› ì•ˆí˜¸ì˜ ë¸”ë¡œê·¸</div>
+          <img class="site-logo" src="logo.png"/>
+          <img class="brand-mark" src="prof.jpg"/>
+          <div>±¹È¸ÀÇ¿ø ¾ÈÈ£¿µ ºí·Î±×</div>
         </div>
         <div class="nav-links">
-          <a href="#">ì†Œê°œ</a>
-          <a href="#">ì•Œë¦¼</a>
-          <a href="#">ë‰´ìŠ¤</a>
-          <a href="#">ì´ì•¼ê¸°</a>
-          <a href="#">í›„ì›</a>
+          <a href="#">¼Ò°³</a>
+          <a href="#">¾Ë¸²</a>
+          <a href="#">´º½º</a>
+          <a href="#">ÀÌ¾ß±â</a>
+          <a href="#">ÈÄ¿ø</a>
         </div>
-        <a class="nav-cta" href="#">ì»¤ë®¤ë‹ˆí‹° ì°¸ì—¬</a>
+        <a class="nav-cta" href="#">Ä¿¹Â´ÏÆ¼ Âü¿©</a>
       </nav>
     </header>
 
     <section class="hero">
       <div class="reveal">
-        <div class="chip">ì „ë¶ìì¹˜ë„ 2026</div>
-        <h1>ê¿ˆì€ ì´ë£¨ì–´ì§‘ë‹ˆë‹¤.</h1>
-        <h2>ì „ë¶ëŒ€ì „í™˜, ë°˜ë„ì²´ ì‚°ë‹¨ ì „ë¶íŠ¹ë³„ìì¹˜ë„ìœ¼ë¡œ!</h2>
+        <div class="chip">ÀüºÏÀÚÄ¡µµ 2026</div>
+        <h1>²ŞÀº ÀÌ·ç¾îÁı´Ï´Ù.</h1>
+        <h2>ÀüºÏ´ëÀüÈ¯, ¹İµµÃ¼ »ê´Ü ÀüºÏÆ¯º°ÀÚÄ¡µµ·Î!</h2>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#">ìµœì‹  ê²Œì‹œë¬¼ ë³´ê¸°</a>
-          <a class="btn btn-outline" href="#">ë‰´ìŠ¤ë ˆí„° êµ¬ë…</a>
+          <a class="btn btn-primary" href="#">ÃÖ½Å °Ô½Ã¹° º¸±â</a>
+          <a class="btn btn-outline" href="#">´º½º·¹ÅÍ ±¸µ¶</a>
         </div>
       </div>
       <div class="hero-card reveal delay-2">
         <div class="avatar">
-          <img src="prof.jpg" alt="í”„ë¡œí•„" />
+          <img src="prof.jpg" alt="ÇÁ·ÎÇÊ" />
           <div>
-            <h3>ì•ˆí˜¸ì˜</h3>
-            <div class="muted">ì •ì±… ? ì†Œí†µ ? í˜„ì¥</div>
+            <h3>¾ÈÈ£¿µ</h3>
+            <div class="muted">Á¤Ã¥ ? ¼ÒÅë ? ÇöÀå</div>
           </div>
         </div>
         <div class="meta">
           <div>
             128
-            <div class="muted">í¬ìŠ¤íŠ¸</div>
+            <div class="muted">Æ÷½ºÆ®</div>
           </div>
           <div>
             5.1k
-            <div class="muted">êµ¬ë…ì</div>
+            <div class="muted">±¸µ¶ÀÚ</div>
           </div>
           <div>
             24
-            <div class="muted">í”„ë¡œì íŠ¸</div>
+            <div class="muted">ÇÁ·ÎÁ§Æ®</div>
           </div>
         </div>
         <div>
-          <strong>ì´ë²ˆ ì£¼ í¬ì»¤ìŠ¤:</strong>
-          <p class="muted">ì§€ì—­ ìˆœíšŒ ê°„ë‹´íšŒ ìš”ì•½ê³¼ ë¯¼ìƒ ì •ì±… ë¸Œë¦¬í”„.</p>
+          <strong>ÀÌ¹ø ÁÖ Æ÷Ä¿½º:</strong>
+          <p class="muted">Áö¿ª ¼øÈ¸ °£´ãÈ¸ ¿ä¾à°ú ¹Î»ı Á¤Ã¥ ºê¸®ÇÁ.</p>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <h2>íƒìƒ‰í•˜ê¸° ì‰¬ìš´ ì¹´í…Œê³ ë¦¬</h2>
-      <p>ì¹´í…Œê³ ë¦¬ë¥¼ ì¹´ë“œí˜•ìœ¼ë¡œ ì¬êµ¬ì„±í•˜ê³  í•µì‹¬ í‚¤ì›Œë“œë¥¼ ë°”ë¡œ í™•ì¸í•  ìˆ˜ ìˆë„ë¡ ê°œì„ í–ˆìŠµë‹ˆë‹¤.</p>
+      <h2>Å½»öÇÏ±â ½¬¿î Ä«Å×°í¸®</h2>
+      <p>Ä«Å×°í¸®¸¦ Ä«µåÇüÀ¸·Î Àç±¸¼ºÇÏ°í ÇÙ½É Å°¿öµå¸¦ ¹Ù·Î È®ÀÎÇÒ ¼ö ÀÖµµ·Ï °³¼±Çß½À´Ï´Ù.</p>
       <div class="chips">
-        <div class="chip">ì •ì±… ë¸Œë¦¬í”„</div>
-        <div class="chip">í˜„ì¥ ìŠ¤ì¼€ì¹˜</div>
-        <div class="chip">ë¯¸ë””ì–´</div>
-        <div class="chip">ì¸í„°ë·°</div>
-        <div class="chip">ê³µì§€</div>
+        <div class="chip">Á¤Ã¥ ºê¸®ÇÁ</div>
+        <div class="chip">ÇöÀå ½ºÄÉÄ¡</div>
+        <div class="chip">¹Ìµğ¾î</div>
+        <div class="chip">ÀÎÅÍºä</div>
+        <div class="chip">°øÁö</div>
       </div>
       <div class="grid">
         <article class="card reveal">
           <div class="card-tag">Issue</div>
-          <h3>ì§€ì—­ ì²­ë…„ ì¼ìë¦¬ ì—°ê³„ ë°©ì•ˆ</h3>
-          <p>í˜„ì¥ì˜ ëª©ì†Œë¦¬ë¥¼ ë°ì´í„°ë¡œ ë¶„ì„í•´ ì •ì±… ì œì•ˆìœ¼ë¡œ ì—°ê²°í•©ë‹ˆë‹¤.</p>
+          <h3>Áö¿ª Ã»³â ÀÏÀÚ¸® ¿¬°è ¹æ¾È</h3>
+          <p>ÇöÀåÀÇ ¸ñ¼Ò¸®¸¦ µ¥ÀÌÅÍ·Î ºĞ¼®ÇØ Á¤Ã¥ Á¦¾ÈÀ¸·Î ¿¬°áÇÕ´Ï´Ù.</p>
           <div class="card-footer">
             <span>2026.02.11</span>
-            <span>ì½ê¸° 6ë¶„</span>
+            <span>ÀĞ±â 6ºĞ</span>
           </div>
         </article>
         <article class="card reveal delay-1">
           <div class="card-tag">Report</div>
-          <h3>ì£¼ê°„ ì •ì±… ë¸Œë¦¬í•‘ ìš”ì•½</h3>
-          <p>í•µì‹¬ 5ê°€ì§€ë§Œ ì½ìœ¼ë©´ ì „ì²´ íë¦„ì„ íŒŒì•…í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.</p>
+          <h3>ÁÖ°£ Á¤Ã¥ ºê¸®ÇÎ ¿ä¾à</h3>
+          <p>ÇÙ½É 5°¡Áö¸¸ ÀĞÀ¸¸é ÀüÃ¼ Èå¸§À» ÆÄ¾ÇÇÒ ¼ö ÀÖ½À´Ï´Ù.</p>
           <div class="card-footer">
             <span>2026.02.08</span>
-            <span>ì½ê¸° 4ë¶„</span>
+            <span>ÀĞ±â 4ºĞ</span>
           </div>
         </article>
         <article class="card reveal delay-2">
           <div class="card-tag">Story</div>
-          <h3>í˜„ì¥ ê°„ë‹´íšŒ ìŠ¤ì¼€ì¹˜</h3>
-          <p>ì‚¬ëŒë“¤ì˜ ì´ì•¼ê¸°ì™€ ë¬¸ì œë¥¼ ê¸°ë¡í•˜ëŠ” ê³µê°„ì„ ë„“í˜”ìŠµë‹ˆë‹¤.</p>
+          <h3>ÇöÀå °£´ãÈ¸ ½ºÄÉÄ¡</h3>
+          <p>»ç¶÷µéÀÇ ÀÌ¾ß±â¿Í ¹®Á¦¸¦ ±â·ÏÇÏ´Â °ø°£À» ³ĞÇû½À´Ï´Ù.</p>
           <div class="card-footer">
             <span>2026.02.03</span>
-            <span>ì½ê¸° 5ë¶„</span>
+            <span>ÀĞ±â 5ºĞ</span>
           </div>
         </article>
         <article class="card reveal delay-3">
           <div class="card-tag">Media</div>
-          <h3>ì˜ìƒ ì¸í„°ë·° í•˜ì´ë¼ì´íŠ¸</h3>
-          <p>ì˜ìƒ ì½˜í…ì¸ ë¥¼ ì¹´ë“œí˜•ìœ¼ë¡œ ì •ë¦¬í•´ ì ‘ê·¼ì„±ì„ ë†’ì˜€ìŠµë‹ˆë‹¤.</p>
+          <h3>¿µ»ó ÀÎÅÍºä ÇÏÀÌ¶óÀÌÆ®</h3>
+          <p>¿µ»ó ÄÜÅÙÃ÷¸¦ Ä«µåÇüÀ¸·Î Á¤¸®ÇØ Á¢±Ù¼ºÀ» ³ô¿´½À´Ï´Ù.</p>
           <div class="card-footer">
             <span>2026.01.30</span>
-            <span>ì½ê¸° 3ë¶„</span>
+            <span>ÀĞ±â 3ºĞ</span>
           </div>
         </article>
       </div>
@@ -514,60 +523,60 @@
     <section class="section">
       <div class="highlight">
         <div>
-          <h3>í•˜ì´ë¼ì´íŠ¸: ì‹œë¯¼ ì°¸ì—¬ í”„ë¡œì íŠ¸</h3>
-          <p>í•œ ë‹¬ ë™ì•ˆ ì§„í–‰ëœ ì•„ì´ë””ì–´ ì œì•ˆ ìº í˜ì¸ ê²°ê³¼ì™€ ë‹¤ìŒ ë‹¨ê³„ ê³„íšì„ ì •ë¦¬í–ˆìŠµë‹ˆë‹¤.</p>
+          <h3>ÇÏÀÌ¶óÀÌÆ®: ½Ã¹Î Âü¿© ÇÁ·ÎÁ§Æ®</h3>
+          <p>ÇÑ ´Ş µ¿¾È ÁøÇàµÈ ¾ÆÀÌµğ¾î Á¦¾È Ä·ÆäÀÎ °á°ú¿Í ´ÙÀ½ ´Ü°è °èÈ¹À» Á¤¸®Çß½À´Ï´Ù.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#">ê²°ê³¼ ë³´ê¸°</a>
-            <a class="btn btn-outline" href="#">í”„ë¡œì íŠ¸ ì•ˆë‚´</a>
+            <a class="btn btn-primary" href="#">°á°ú º¸±â</a>
+            <a class="btn btn-outline" href="#">ÇÁ·ÎÁ§Æ® ¾È³»</a>
           </div>
         </div>
         <div class="timeline">
           <div class="timeline-item">
-            <strong>2ì›” 1ì£¼ì°¨</strong>
-            <span>ì•„ì´ë””ì–´ ìˆ˜ì§‘ ë° ë¶„ë¥˜</span>
+            <strong>2¿ù 1ÁÖÂ÷</strong>
+            <span>¾ÆÀÌµğ¾î ¼öÁı ¹× ºĞ·ù</span>
           </div>
           <div class="timeline-item">
-            <strong>2ì›” 2ì£¼ì°¨</strong>
-            <span>ì •ì±… ê²€í†  ë° í”¼ë“œë°±</span>
+            <strong>2¿ù 2ÁÖÂ÷</strong>
+            <span>Á¤Ã¥ °ËÅä ¹× ÇÇµå¹é</span>
           </div>
           <div class="timeline-item">
-            <strong>2ì›” 3ì£¼ì°¨</strong>
-            <span>ì •ì±… ì œì•ˆ ê³µê°œ ë° í† ë¡ </span>
+            <strong>2¿ù 3ÁÖÂ÷</strong>
+            <span>Á¤Ã¥ Á¦¾È °ø°³ ¹× Åä·Ğ</span>
           </div>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <h2>ìµœê·¼ ë‰´ìŠ¤</h2>
-      <p>ì´ë¯¸ì§€ì™€ í…ìŠ¤íŠ¸ë¥¼ í•¨ê»˜ ë³´ì—¬ì£¼ëŠ” ì¹´ë“œ ë ˆì´ì•„ì›ƒìœ¼ë¡œ ìŠ¤í¬ë¡¤ íš¨ìœ¨ì„ ë†’ì˜€ìŠµë‹ˆë‹¤.</p>
+      <h2>ÃÖ±Ù ´º½º</h2>
+      <p>ÀÌ¹ÌÁö¿Í ÅØ½ºÆ®¸¦ ÇÔ²² º¸¿©ÁÖ´Â Ä«µå ·¹ÀÌ¾Æ¿ôÀ¸·Î ½ºÅ©·Ñ È¿À²À» ³ô¿´½À´Ï´Ù.</p>
       <div class="news">
         <article class="news-card reveal">
-          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=800&auto=format&fit=crop" alt="ë‰´ìŠ¤ ì´ë¯¸ì§€" />
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=800&auto=format&fit=crop" alt="´º½º ÀÌ¹ÌÁö" />
           <div class="content">
-            <span>2026.02.09 Â· í˜„ì¥</span>
-            <h4>ì§€ì—­ ìƒê¶Œ ê°„ë‹´íšŒ ìš”ì•½</h4>
+            <span>2026.02.09 ¡¤ ÇöÀå</span>
+            <h4>Áö¿ª »ó±Ç °£´ãÈ¸ ¿ä¾à</h4>
           </div>
         </article>
         <article class="news-card reveal delay-1">
-          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=800&auto=format&fit=crop" alt="ë‰´ìŠ¤ ì´ë¯¸ì§€" />
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=800&auto=format&fit=crop" alt="´º½º ÀÌ¹ÌÁö" />
           <div class="content">
-            <span>2026.02.06 Â· ì •ì±…</span>
-            <h4>ë¯¸ë˜ ì‚°ì—… ì¸ì¬ ì–‘ì„± ë°œí‘œ</h4>
+            <span>2026.02.06 ¡¤ Á¤Ã¥</span>
+            <h4>¹Ì·¡ »ê¾÷ ÀÎÀç ¾ç¼º ¹ßÇ¥</h4>
           </div>
         </article>
         <article class="news-card reveal delay-2">
-          <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=800&auto=format&fit=crop" alt="ë‰´ìŠ¤ ì´ë¯¸ì§€" />
+          <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=800&auto=format&fit=crop" alt="´º½º ÀÌ¹ÌÁö" />
           <div class="content">
-            <span>2026.02.02 Â· ì¸í„°ë·°</span>
-            <h4>ì§€ì—­ ì²­ë…„ê³¼ì˜ ëŒ€í™”</h4>
+            <span>2026.02.02 ¡¤ ÀÎÅÍºä</span>
+            <h4>Áö¿ª Ã»³â°úÀÇ ´ëÈ­</h4>
           </div>
         </article>
       </div>
     </section>
 
     <footer class="footer">
-      <div>ë¬¸ì˜: hello@kachi.blog Â· 2026 ì¹´ì¹˜ ë¸”ë¡œê·¸</div>
+      <div>¹®ÀÇ: hello@kachi.blog ¡¤ 2026 Ä«Ä¡ ºí·Î±×</div>
     </footer>
   </div>
 </body>
